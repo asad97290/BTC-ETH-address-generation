@@ -45,8 +45,11 @@ async function createBitcoinAddress() {
   var obj = wif.decode(key);
 
   let pk = wif.encode(obj);
+
+
+  const __addrnode = root.derive("m/84'/0'/0'/0/0");
   
-  const { address } = btcnodejs.payments.p2wpkh({ pubkey: _addrnode._publicKey, network:btcnodejs.networks.bitcoin});
+  const { address } = btcnodejs.payments.p2wpkh({ pubkey: __addrnode._publicKey, network:btcnodejs.networks.bitcoin});
   
   
   console.log("mnemonic ----->", mnemonic);
